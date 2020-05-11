@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -6,7 +6,8 @@ import { Box, Heading, Button } from 'grommet'
 import { Notification } from 'grommet-icons'
 
 function AppBar(props) {
-  const [showSidebar, setShowSidebar] = useState(false)
+  let { sidebar, setSidebar } = props
+
   return (
     <Box
       tag="header"
@@ -20,13 +21,15 @@ function AppBar(props) {
       {...props}
     >
       <Heading level="3" margin="none">{props.appName}</Heading>
-      <Button icon={<Notification/>} onClick={() => setShowSidebar(!showSidebar)}/>
+      <Button icon={<Notification/>} onClick={() => setSidebar(!sidebar)} focusIndicator={false}/>
     </Box>
   )
 }
 
 AppBar.propTypes = {
-  appName: PropTypes.string.isRequired
+  appName: PropTypes.string.isRequired,
+  sidebar: PropTypes.bool,
+  setSidebar: PropTypes.func
 }
 
 export default AppBar

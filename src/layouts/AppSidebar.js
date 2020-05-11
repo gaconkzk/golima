@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+import PropTypes from 'prop-types'
 
 import { Box, Collapsible } from 'grommet'
 
-function AppSidebar(){
-  const [showSidebar, setShowSidebar] = useState(false)
-
+function AppSidebar(props){
+  let { show } = props
   return (
-    <Collapsible direction="horizontal" open={showSidebar}>
+    <Collapsible direction="horizontal" open={show}>
       <Box
+        flex
         width="medium"
         background="light-2"
         elevation="small"
@@ -18,6 +20,10 @@ function AppSidebar(){
       </Box>
     </Collapsible>
   )
+}
+
+AppSidebar.propTypes = {
+  show: PropTypes.bool
 }
 
 export default AppSidebar

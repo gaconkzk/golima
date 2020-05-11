@@ -3,13 +3,20 @@
   "scripts": {
     "start": "parcel src/index.html",
     "lint": "eslint --fix src",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "eslint": "^7.0.0",

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Grommet,
 } from 'grommet'
 
 import AppBar from './layouts/AppBar'
-import AppBody from './layouts/AppBody'
+import AppSidebar from './layouts/AppSidebar'
 
 const theme = {
   global: {
@@ -20,12 +20,21 @@ const theme = {
   }
 }
 
-const App = () => (
-  <Grommet theme={theme} full>
-    <Box fill>
-      <AppBar appName="Golima"/>
-      <AppBody />
-    </Box>
-  </Grommet>
-)
+const App = () => {
+  const [sidebar, setSidebar] = useState(false)
+
+  return (
+    <Grommet theme={theme} full>
+      <Box fill>
+        <AppBar appName="Golima" sidebar={sidebar} setSidebar={setSidebar}/>
+        <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+          <Box flex align="center" justify="center">
+            app body
+          </Box>
+          <AppSidebar show={sidebar}/>
+        </Box>
+      </Box>
+    </Grommet>
+  )
+}
 export default App
