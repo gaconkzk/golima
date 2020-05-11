@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import {
   Box,
   Grommet,
+  ResponsiveContext,
 } from 'grommet'
 
 import AppBar from './layouts/AppBar'
 import AppSidebar from './layouts/AppSidebar'
+import MobileSidebar from './layouts/mobiles/Sidebar'
 
 const theme = {
   global: {
@@ -25,15 +27,23 @@ const App = () => {
 
   return (
     <Grommet theme={theme} full>
-      <Box fill>
-        <AppBar appName="Golima" sidebar={sidebar} setSidebar={setSidebar}/>
-        <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-          <Box flex align="center" justify="center">
-            app body
+      <ResponsiveContext.Consumer>
+        {size=> (
+        <Box fill>
+          <AppBar appName="Golima" sidebar={sidebar} setSidebar={setSidebar}/>
+          <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+            <Box flex align="center" justify="center">
+              app body
+            </Box>
+            {(!sidebar || size !== 'small') ? (
+              <AppSidebar show={sidebar}/>
+            ): (
+              <MobileSidebar setSidebar={setSidebar} />
+            )}
           </Box>
-          <AppSidebar show={sidebar}/>
         </Box>
-      </Box>
+        )}
+      </ResponsiveContext.Consumer>
     </Grommet>
   )
 }
