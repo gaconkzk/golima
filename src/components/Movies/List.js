@@ -1,7 +1,11 @@
-import React from 'react'
-import { Box, Heading } from 'grommet'
+import React, { useContext, useEffect, useCallback } from 'react'
+import { Box } from 'grommet'
+import { Run } from 'grommet-icons'
 
 import ResponsiveGrid from 'components/ResponsiveGrid'
+import { MovieContext } from './MovieContext'
+
+import Item from './Item'
 
 // columns, rows and areas are for Grid with a known number of contents / boxes.
 
@@ -14,47 +18,29 @@ const columns = {
   large: ["auto", "auto", "auto", "auto", "auto"]
 }
 
-const movies = [
-  'test fhg1',
-  'test3231',
-  'tescbcvt1',
-  'te345st1',
-  'test451',
-  'tes4t1',
-  'testdhjh1',
-  'test31',
-  'thnestsd1',
-  'tesbvt1',
-  'tes2t1',
-  'teaefbvnst1',
-  'testasf1',
-  'tes t1',
-  'testcxfa1'
-]
+const MovieList = () => {
+  let { movies, loading, getMovies, query }= useContext(MovieContext)
 
-// Create box for each movie
-const listMoviesBoxes = movies.map(movieName => (
-  <Box
-    elevation="large"
-    key={movieName}
-    background="light-3"
-    flex={false}
-    justify="center"
-    align="center"
-    round='small'
-    margin={{ right: '10px', left: '5px', top: '5px' }}
-  >
-    <Heading level={2}>{movieName}</Heading>
-  </Box>
-))
+  // Stupid react hook team
+  // Calling getMovies inside useEffect will caused warning
+  // about exhausted deps but worked, but to fix the lint
+  // we need to add getMovies into deps array, then we will got
+  // inifinite loop, since getMovies getting change every call
+  const memoizeGetMovies = useCallback(getMovies, [])
+  useEffect(() => {
+    memoizeGetMovies({query, size: 10, page: 0})
+  },[query, memoizeGetMovies])
 
-const MovieList = (props) => {
   return (
-    <Box flex>
+    !loading ? (<Box flex>
       <ResponsiveGrid columns={columns} rows='small' gap='xsmall'>
-        {listMoviesBoxes}
+        { movies && movies.map(m => <Item movie={m} key={m.id} />)}
       </ResponsiveGrid>
-    </Box>
+    </Box>) : (
+      <Box flex>
+        <Run size='large'/>
+      </Box>
+    )
   )
 }
 
