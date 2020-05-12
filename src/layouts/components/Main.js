@@ -6,7 +6,7 @@ import { MoviesList } from 'components/Movies'
 
 const Main = (props) => {
   return (
-    <Box flex>
+    <Box background='brand' fill flex>
       <Grid
         align='stretch'
         rows={['medium', 'xsmall', 'auto']}
@@ -20,11 +20,11 @@ const Main = (props) => {
       >
         <Box gridArea='banner' background='brand' align='center' justify='center' elevation='medium' overflow='hidden'>
           <Stack anchor='center' guidingChild='last' fill>
-            <Heading color='#ef2331' margin={{top: '-100px'}}>Get your eyes of me!!!!</Heading>
+            <Heading color='#ef2331' margin={{top: '-100px'}}>TAKE your eyEs off me!!!!</Heading>
             <Image fill opacity='medium' fit='cover' src='https://sites.google.com/site/subjectguidewomeninhorrorfilms/_/rsrc/1430194528627/reference-books/evil-dead-banner.png'/>
           </Stack>
         </Box>
-        <Box gridArea='search' align='center'>
+        <Box gridArea='search' align='center' background='brand'>
           <Search/>
         </Box>
         <Box gridArea='result'>

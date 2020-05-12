@@ -1,23 +1,7 @@
 import React from 'react'
 import { Box, Heading } from 'grommet'
-import { grommet } from 'grommet/themes'
-import { deepMerge } from 'grommet/utils'
 
-const customBreakpoints = deepMerge(grommet, {
-  global: {
-    breakpoints: {
-      small: {
-        value: 600
-      },
-      medium: {
-        value: 900
-      },
-      large: {
-        value: 3000
-      }
-    }
-  }
-})
+import ResponsiveGrid from 'components/ResponsiveGrid'
 
 // columns, rows and areas are for Grid with a known number of contents / boxes.
 
@@ -27,8 +11,7 @@ const customBreakpoints = deepMerge(grommet, {
 const columns = {
   small: ["auto"],
   medium: ["auto", "auto", "auto"],
-  large: ["auto", "auto", "auto", "auto"],
-  xlarge: ["auto", "auto", "auto", "auto", "auto"]
+  large: ["auto", "auto", "auto", "auto", "auto"]
 }
 
 const movies = [
@@ -58,6 +41,8 @@ const listMoviesBoxes = movies.map(movieName => (
     flex={false}
     justify="center"
     align="center"
+    round='small'
+    margin={{ right: '10px', left: '5px', top: '5px' }}
   >
     <Heading level={2}>{movieName}</Heading>
   </Box>
@@ -66,7 +51,9 @@ const listMoviesBoxes = movies.map(movieName => (
 const MovieList = (props) => {
   return (
     <Box flex>
-      aaaa
+      <ResponsiveGrid columns={columns} rows='small' gap='xsmall'>
+        {listMoviesBoxes}
+      </ResponsiveGrid>
     </Box>
   )
 }

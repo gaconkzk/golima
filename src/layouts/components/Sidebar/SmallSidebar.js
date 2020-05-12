@@ -11,7 +11,7 @@ import { SimButton } from 'components/SimButton'
 const SmallSidebar = (props) => {
   let { sidebar, setSidebar } = useContext(SidebarContext)
   return (
-    sidebar &&<Layer>
+    sidebar &&<Layer animate={true} animation='fadeIn'>
       
       <Box background='light-2' tag='header' justify='end' align='center' direction='row'>
         <SimButton icon={<FormClose/>} onClick={()=>setSidebar(false)} />
