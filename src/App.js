@@ -27,7 +27,7 @@ function App() {
         {size => (
           <Box fill>
             <SidebarContextProvider>
-              <Navbar appname='Golima' toggleSidebar/>
+              <Navbar appname='Golima'/>
               <Box direction='row' flex overflow={{horizontal: 'hidden'}}>
                 <Main/>
                 {(size === 'small') ? (
