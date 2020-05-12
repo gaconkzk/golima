@@ -19,7 +19,7 @@ const columns = {
 }
 
 const MovieList = () => {
-  let { movies, loading, getMovies, query }= useContext(MovieContext)
+  let { movies, loading, getMovies, query, error }= useContext(MovieContext)
 
   // Stupid react hook team
   // Calling getMovies inside useEffect will caused warning
@@ -29,7 +29,7 @@ const MovieList = () => {
   const memoizeGetMovies = useCallback(getMovies, [])
   useEffect(() => {
     memoizeGetMovies({query, size: 10, page: 0})
-  },[query, memoizeGetMovies])
+  },[query, memoizeGetMovies, error])
 
   return (
     !loading ? (<Box flex>

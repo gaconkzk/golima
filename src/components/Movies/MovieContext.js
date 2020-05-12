@@ -7,6 +7,7 @@ const MovieContextProvider = props => {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('glass')
+  const [error, setError] = useState(null)
 
   const getMovies = ({query, size, page}) => {
     if (!query || !query.length) {
@@ -18,10 +19,13 @@ const MovieContextProvider = props => {
     axios
       .get(`http://localhost:3100/api/search?q=${query}`)
       .then(response => {
+        if (error) {
+          setError(null)
+        }
         setMovies(response.data)
       })
       .catch(err => {
-        console.log('Error get movies', err)
+        setError(err)
         setMovies([])
       })
       .finally(() => {
@@ -30,7 +34,7 @@ const MovieContextProvider = props => {
   }
 
   return (
-    <MovieContext.Provider value={{ movies, loading, getMovies, query, setQuery }}>
+    <MovieContext.Provider value={{ movies, loading, getMovies, query, setQuery, error }}>
       {props.children}
     </MovieContext.Provider>
   )
