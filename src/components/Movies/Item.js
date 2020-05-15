@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Stack, Image, Text, Avatar } from 'grommet'
+import { Anchor, Box, Stack, Image, Text, Avatar } from 'grommet'
 
 const bg=(p) => {
   switch (p) {
@@ -12,6 +12,7 @@ const bg=(p) => {
 
 const Item = ({movie, ...props}) => {
   return (
+    <Anchor href={`/movies/${movie.hash}`}>
     <Box align='start' justify='center' overflow='hidden' round='small' elevation='small'>
       <Stack anchor='top-left' guidingChild='first' fill>
         <Image src={movie.thumbnail} fit='cover' fill/>
@@ -21,6 +22,7 @@ const Item = ({movie, ...props}) => {
         </Avatar>
       </Stack>
     </Box>
+    </Anchor>
   )
 }
 
