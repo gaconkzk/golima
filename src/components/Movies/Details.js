@@ -11,7 +11,7 @@ const Details = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3100/api/info?id=${id}`)
+      .get(`http://192.168.88.102:3100/api/info?id=${id}`)
       .then(response => {
         setMovie(response.data)
       })

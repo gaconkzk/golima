@@ -17,7 +17,7 @@ const MovieContextProvider = props => {
     setLoading(true)
 
     axios
-      .get(`http://localhost:3100/api/search?q=${query}`)
+      .get(`http://192.168.88.102:3100/api/search?q=${query}`)
       .then(response => {
         if (error) {
           setError(null)
