@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactJWPlayer from 'react-jw-player'
 
 import axios from 'axios'
+import { MovieContext } from './MovieContext'
 
 const Details = (props) => {
   let { id } = useParams('id')
   const [ playlist, setPlaylist ] = useState([])
   const [ movie, setMovie ] = useState({})
 
+  const { movies } = useContext(MovieContext)
+
   useEffect(() => {
     axios
-      .get(`http://192.168.88.102:3100/api/info?id=${id}`)
+      .get(`/api/info?id=${id}`)
       .then(response => {
-        setMovie(response.data)
+        let movie = response.data
+        setMovie(movie)
+        let info = movies.find(m => m.id === movie.id)
+        console.log(movie, info)
       })
       .catch(err => {
         
@@ -27,9 +33,10 @@ const Details = (props) => {
     if (movie) {
       setPlaylist([{
         file: movie.url,
-        onXhrOpen: (xhr, url) => {
-          xhr.setRequestHeader('referer', movie.referer)
-        }
+        image: movie.thumbnail
+        // onXhrOpen: (xhr, url) => {
+        //   xhr.setRequestHeader('referer', movie.referer)
+        // }
       }])
     }
   }, [movie])

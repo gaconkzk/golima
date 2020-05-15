@@ -8,11 +8,12 @@ import MovieContextProvider from 'components/Movies/MovieContext'
 
 const Main = (props) => {
   return (
+    <MovieContextProvider>
     <Box background='brand' fill flex>
       <Router basename='/' history={true}>
           <Switch>
             <Route exact path='/movies/:id'>
-              <MovieDetails/>
+                <MovieDetails/>
             </Route>
             {/* <Route
               exact
@@ -39,7 +40,6 @@ const Main = (props) => {
                       <Heading color='#ef2331' margin={{top: '-100px'}}>TAKE your eyEs off me!!!!</Heading>
                     </Stack>
                   </Box>
-                  <MovieContextProvider>
                     <Box gridArea='search' align='center' background='brand'>
                       <Search/>
                     </Box>
@@ -54,12 +54,12 @@ const Main = (props) => {
                           </Switch>
                         </Router>
                     </Box>
-                  </MovieContextProvider>
                 </Grid>
                 }/>
         </Switch>
       </Router>
     </Box>
+    </MovieContextProvider>
   )
 }
 

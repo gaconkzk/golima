@@ -12,17 +12,18 @@ const bg=(p) => {
 
 const Item = ({movie, ...props}) => {
   return (
-    <Anchor href={`/movies/${movie.hash}`}>
-    <Box align='start' justify='center' overflow='hidden' round='small' elevation='small'>
+    
+    <Box align='start' justify='center' overflow='hidden' round='small'>
       <Stack anchor='top-left' guidingChild='first' fill>
         <Image src={movie.thumbnail} fit='cover' fill/>
-        <Text as='span' margin={{ left: '25px' }} weight='bold' size='1rem'>{movie.title}</Text>
+        <Anchor href={`/movies/${movie.hash}`}>
+          <Text as='span' margin={{ left: '25px' }} weight='bold' size='1rem'>{movie.title}</Text>
+        </Anchor>
         <Avatar background={bg(movie.provider)} margin={{top: '5px', left: '5px'}} size='small'>
           {movie.provider}
         </Avatar>
       </Stack>
     </Box>
-    </Anchor>
   )
 }
 

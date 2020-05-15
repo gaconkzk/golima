@@ -19,7 +19,7 @@ const columns = {
 }
 
 const MovieList = () => {
-  let { movies, loading, getMovies, query, error }= useContext(MovieContext)
+  let { movies, loading, getMovies, query, error } = useContext(MovieContext)
 
   // Stupid react hook team
   // Calling getMovies inside useEffect will caused warning
@@ -33,7 +33,7 @@ const MovieList = () => {
 
   return (
     !loading ? (<Box flex>
-      <ResponsiveGrid columns={columns} rows='small' gap='xsmall'>
+      <ResponsiveGrid columns={columns} rows='small' gap='small'>
         { movies && movies.map(m => <Item movie={m} key={m.id} />)}
       </ResponsiveGrid>
     </Box>) : (

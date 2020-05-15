@@ -43,5 +43,6 @@
     "prop-types": "^15.7.2",
     "tsutils": "^3.17.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "proxy": "http://localhost:3100"
 }
