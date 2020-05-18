@@ -33,7 +33,7 @@ const MovieList = () => {
 
   return (
     !loading ? (<Box flex>
-      <ResponsiveGrid columns={columns} rows='small' gap='small'>
+      <ResponsiveGrid columns={columns} rows='auto' gap='small'>
         { movies && movies.map(m => <Item movie={m} key={m.id} />)}
       </ResponsiveGrid>
     </Box>) : (

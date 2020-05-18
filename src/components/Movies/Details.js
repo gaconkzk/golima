@@ -2,27 +2,33 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactJWPlayer from 'react-jw-player'
 
+import { Main, Box, Heading, ResponsiveContext } from 'grommet'
+
 import axios from 'axios'
-import { MovieContext } from './MovieContext'
 
 const Details = (props) => {
   let { id } = useParams('id')
-  const [ playlist, setPlaylist ] = useState([])
+
+  const [ playlist, setPlaylist ] = useState(null)
   const [ movie, setMovie ] = useState({})
 
-  const { movies } = useContext(MovieContext)
+  const [ error, setError ] = useState({})
 
   useEffect(() => {
     axios
       .get(`/api/info?id=${id}`)
       .then(response => {
         let movie = response.data
+        if (error.msg) {
+          setError({})
+        }
         setMovie(movie)
-        let info = movies.find(m => m.id === movie.id)
-        console.log(movie, info)
       })
       .catch(err => {
-        
+        if (err.response.status === 412) {
+          setError(err.response.data)
+        }
+        setMovie({})
       })
       .finally(() => {
         
@@ -32,21 +38,29 @@ const Details = (props) => {
   useEffect(() => {
     if (movie) {
       setPlaylist([{
+        title: movie.title,
+        description: movie.description,
         file: movie.url,
-        image: movie.thumbnail
-        // onXhrOpen: (xhr, url) => {
-        //   xhr.setRequestHeader('referer', movie.referer)
-        // }
+        image: movie.previewUrl
       }])
+    } else {
+      setPlaylist([])
     }
   }, [movie])
   return (
-    <div>hello, watching {id}
-      <ReactJWPlayer playerId='flinema-player'
-        playerScript='https://cdn.jwplayer.com/libraries/ZN2NyITe.js'
-        playlist={playlist}
-        customProps={{type: movie.type}}/>
-    </div>
+    movie && movie.url ? <Main direction='column' fill align='center'>
+        <Box flex fill width={{ min: '500px', max: '1024px' }}>
+        <ReactJWPlayer playerId='flinema-player'
+          playerScript='https://cdn.jwplayer.com/libraries/ZN2NyITe.js'
+          image={movie.previewUrl || ''}
+          playlist={playlist}
+          customProps={{
+            title: movie.title,
+            type: movie.type,
+            height: movie.resolution || '100%'
+          }}/>
+      </Box>
+    </Main> : (error && error.msg) ? <div> Lỗi rồi mấy thým ơi, Kím phim khác coi nha ahihi ... </div> : <div> waiting ... </div>
   )
 }
 

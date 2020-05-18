@@ -13,7 +13,7 @@ const Main = (props) => {
       <Router basename='/' history={true}>
           <Switch>
             <Route exact path='/movies/:id'>
-                <MovieDetails/>
+              <MovieDetails/>
             </Route>
             {/* <Route
               exact

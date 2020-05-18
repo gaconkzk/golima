@@ -2,11 +2,17 @@ import React, { useContext } from 'react'
 
 import PropTypes from 'prop-types'
 
-import { Header, Heading } from 'grommet'
+import { Header, Heading, ThemeContext } from 'grommet'
 import { Notification } from 'grommet-icons'
+
+import styled from 'styled-components'
 
 import { SimButton } from 'components/SimButton'
 import { SidebarContext } from 'layouts/components/Sidebar'
+
+const StyledHeading = styled(Heading)`
+  text-decoration: 'none';
+`
 
 const Navbar = (props) => {
   let { appname, toggleSidebar } = props
@@ -22,7 +28,17 @@ const Navbar = (props) => {
       style={{ zIndex: '1', height: '72px' }}
       {...props}
     >
-      <Heading level='3' margin='none'>{appname}</Heading>
+      <ThemeContext.Extend
+        value={{
+          heading: {
+            extend: {
+              'color': '#FFEECC',
+              'text-decoration': 'none'
+            }
+          }
+        }}>
+      <Heading level={3} margin='none' as='a' href='/'>{appname}</Heading>
+      </ThemeContext.Extend>
       { toggleSidebar && 
         <SimButton icon={<Notification/>} size='small' onClick={()=>{setSidebar(!sidebar)}}/>
       }
