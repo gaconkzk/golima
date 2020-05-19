@@ -65,7 +65,7 @@ const Details = (props) => {
           <Box>current: tập {movie.number}, {movie.episodeId}</Box>
           <div>
             { movie.episodes && movie.episodes.map(me => 
-              <a key={me.episodeId} href={`/movies/${me.hash}`}>
+              <a key={me.episodeId} href={`#/movies/${me.hash}`}>
                 {me.episodeId === movie.episodeId ? 'current ------>' : ''}
                 {me.number} : {me.episodeId} <br/>
               </a>

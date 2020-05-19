@@ -31,7 +31,7 @@ const Navbar = (props) => {
             }
           }
         }}>
-      <Heading level={3} margin='none' as='a' href='/'>{appname}</Heading>
+      <Heading level={3} margin='none' as='a' href='#'>{appname}</Heading>
       </ThemeContext.Extend>
       { toggleSidebar && 
         <SimButton icon={<Notification/>} size='small' onClick={()=>{setSidebar(!sidebar)}}/>

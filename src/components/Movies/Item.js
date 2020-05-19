@@ -12,11 +12,9 @@ const bg=(p) => {
 
 const Item = ({movie, ...props}) => {
   return (
-    <Box align='start' justify='center' overflow='hidden' round='small' as='a' href={`/movies/${movie.hash}`}>
+    <Box align='start' justify='center' overflow='hidden' round='small' as='a' href={`#/movies/${movie.hash}`}>
       <Stack anchor='bottom-left' guidingChild='first' fill margin={{ bottom: '20px'}}>
         <Image src={movie.thumbnail} fit='cover' fill/>
-        {/* <Anchor href={`/movies/${movie.hash}`}> */}
-        {/* </Anchor> */}
         <Avatar background={bg(movie.provider)} margin={{top: '5px', left: '5px'}} size='small'>
           {movie.provider}
         </Avatar>
