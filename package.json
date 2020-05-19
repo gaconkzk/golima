@@ -1,12 +1,54 @@
 {
   "name": "golima",
   "version": "0.1.0",
+  "main": "public/electron.js",
   "private": true,
+  "author": {
+    "name": "Vincent To",
+    "email": "gaconkzk@gmail.com",
+    "url": "https://theflies.dev"
+  },
+  "build": {
+    "appId": "dev.theflies.golima",
+    "productName": "Golima",
+    "copyright": "Copyright © 2020 ${author}",
+    "mac": {
+      "category": "public.app-category.entertainment"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "electron-is-dev": "^1.2.0",
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
     "hls.js": "^0.13.2",
@@ -20,10 +62,14 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -wl --x64"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,11 +86,24 @@
       "last 1 safari version"
     ]
   },
+  "rescripts": [
+    "env"
+  ],
   "devDependencies": {
+    "@rescripts/cli": "^0.0.14",
+    "@rescripts/rescript-env": "^0.0.12",
     "@testing-library/dom": "^7.5.1",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "electron": "^9.0.0",
+    "electron-builder": "^22.6.1",
+    "electron-devtools-installer": "^3.0.0",
     "prop-types": "^15.7.2",
     "tsutils": "^3.17.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2",
+    "wait-on": "^5.0.0"
   },
-  "proxy": "http://localhost:3100"
+  "proxy": "http://localhost:3100",
+  "node-remote": "http://localhost:3000",
+  "homepage": "./"
 }

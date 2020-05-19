@@ -25,7 +25,7 @@ const Main = (props) => {
               render={() =>
                 <Grid
                   align='stretch'
-                  rows={['medium', 'xsmall', 'auto']}
+                  rows={['medium', 'medium', 'auto']}
                   columns={['auto', 'flex', 'auto']}
                   gap='small'
                   areas={[
@@ -40,7 +40,7 @@ const Main = (props) => {
                       <Heading color='#ef2331' margin={{top: '-100px'}}>TAKE your eyEs off me!!!!</Heading>
                     </Stack>
                   </Box>
-                    <Box gridArea='search' align='center' background='brand'>
+                    <Box gridArea='search' align='center' background='brand' fill justify='center'>
                       <Search/>
                     </Box>
                     <Box gridArea='result'>

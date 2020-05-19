@@ -5,14 +5,8 @@ import PropTypes from 'prop-types'
 import { Header, Heading, ThemeContext } from 'grommet'
 import { Notification } from 'grommet-icons'
 
-import styled from 'styled-components'
-
 import { SimButton } from 'components/SimButton'
 import { SidebarContext } from 'layouts/components/Sidebar'
-
-const StyledHeading = styled(Heading)`
-  text-decoration: 'none';
-`
 
 const Navbar = (props) => {
   let { appname, toggleSidebar } = props

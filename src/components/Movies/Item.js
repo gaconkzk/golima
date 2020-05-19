@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Anchor, Box, Stack, Image, Text, Avatar, ThemeContext } from 'grommet'
+import { Box, Stack, Image, Text, Avatar, ThemeContext } from 'grommet'
 
 const bg=(p) => {
   switch (p) {
