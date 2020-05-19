@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, crashReporter, BrowserWindow, Menu } = electron
+const { app, crashReporter, BrowserWindow, Menu, session } = electron
 
 const path = require('path')
 const isDev = require('electron-is-dev')
