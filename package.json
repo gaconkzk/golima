@@ -16,7 +16,6 @@
       "category": "public.app-category.entertainment"
     },
     "files": [
-      "electron.js",
       "build/**/*",
       "node_modules/**/*"
     ],
