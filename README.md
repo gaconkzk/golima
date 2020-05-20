@@ -17,4 +17,4 @@ docker run --rm -ti \
  electronuserland/builder:wine
 ```
 
-type in yarn && yarn electron-pack
+type in `yarn && yarn electron-pack`
