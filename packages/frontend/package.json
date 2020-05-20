@@ -1,8 +1,7 @@
 {
-  "name": "plimacli",
+  "name": "golima",
   "version": "0.1.0",
   "main": "public/electron.js",
-  "private": true,
   "author": {
     "name": "Vincent To",
     "email": "gaconkzk@gmail.com",
@@ -12,6 +11,7 @@
     "appId": "dev.theflies.golima",
     "productName": "Golima",
     "copyright": "Copyright © 2020 ${author}",
+    "electronVersion": "9.0.0",
     "mac": {
       "category": "public.app-category.entertainment"
     },
@@ -52,13 +52,14 @@
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
     "hls.js": "^0.13.2",
+    "plimaser": "1.0.0",
     "plyr-react": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "react-jw-player": "^1.19.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
@@ -67,14 +68,14 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others",
-    "afterinstall": "electron-builder install-app-deps",
+    "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "electron-builder -wl --x64"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": { 
+  "browserslist": {
     "production": [
       ">0.2%",
       "not dead",

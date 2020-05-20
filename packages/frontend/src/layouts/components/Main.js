@@ -10,7 +10,7 @@ const Main = (props) => {
   return (
     <MovieContextProvider>
     <Box background='brand' fill flex>
-      <Router basename='/' exact={true} hashType='slash'>
+      <Router basename='/' hashType='slash'>
         <Route exact path='/movies/:id'>
           <MovieDetails/>
         </Route>

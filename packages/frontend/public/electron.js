@@ -1,8 +1,12 @@
+require('dotenv').config({ silent: true })
+
 const electron = require('electron')
-const { app, crashReporter, BrowserWindow, Menu, session } = electron
+const { app, crashReporter, BrowserWindow, Menu } = electron
 
 const path = require('path')
 const isDev = require('electron-is-dev')
+
+// const server = require('plimaser/lib/server')
 
 let mainWindow
 
@@ -32,8 +36,8 @@ function createWindow() {
   }
   
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 680,
+    width: 1024,
+    height: 720,
     show: false,
     webPreferences: {
       nodeIntegration: true,

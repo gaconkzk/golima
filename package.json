@@ -1,5 +1,5 @@
 {
-  "name": "golima",
+  "name": "lernago",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -19,15 +19,15 @@
     ]
   },
   "engines": {
-    "yarn": "^1.22.2"
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "start": "lerna run --stream start",
-    "build": "lerna run build --scope frontend",
-    "test": "lerna run test --scope frontend",
-    "eject": "lerna run eject --scope frontend",
-    "electron-dev": "lerna run --scope frontend electron-dev",
-    "electron-pack": "lerna run electron-pack --scope frontend"
+    "build": "lerna run build --scope golima",
+    "test": "lerna run test --scope golima",
+    "eject": "lerna run eject --scope golima",
+    "electron-dev": "lerna run --scope golima electron-dev",
+    "electron-pack": "lerna run electron-pack --scope golima"
   },
   "devDependencies": {
     "lerna": "^3.21.0"
