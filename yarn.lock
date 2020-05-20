@@ -9488,7 +9488,7 @@ pkg-up@3.1.0, pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-plimaser@^1.0.0:
+plimaser@./server:
   version "1.0.0"
   dependencies:
     bluebird "^3.7.2"

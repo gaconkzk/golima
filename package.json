@@ -52,7 +52,7 @@
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
     "hls.js": "^0.13.2",
-    "plimaser": "^1.0.0",
+    "plimaser": "git@github.com:gaconkzk/phimaser.git#078371f",
     "plyr-react": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -70,7 +70,7 @@
     "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -wl --x64"
+    "electron-pack": "electron-builder --x64"
   },
   "eslintConfig": {
     "extends": "react-app"
