@@ -25,9 +25,10 @@ const Details = (props) => {
         setMovie(movie)
       })
       .catch(err => {
-        if (err.response.status === 412) {
+        if (err.response && err.response.status === 412) {
           setError(err.response.data)
         }
+        console.error(err)
         setMovie({})
       })
       .finally(() => {

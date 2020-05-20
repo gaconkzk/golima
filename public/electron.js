@@ -4,6 +4,8 @@ const { app, crashReporter, BrowserWindow, Menu, session } = electron
 const path = require('path')
 const isDev = require('electron-is-dev')
 
+const server = require('plimaser/lib/server')
+
 let mainWindow
 
 const installExtensions = async () => {
@@ -29,6 +31,15 @@ crashReporter.start({
 function createWindow() {
   if (isDev) {
     installExtensions()
+  }
+
+  if (server && !server.isStarted) {
+    const port = process.env.SERVER_PORT || 3100
+
+    server.listen(port, () => {
+      console.log(`app run on http://0.0.0.0:${port}`)
+      server.isStarted = true
+    })
   }
   
   mainWindow = new BrowserWindow({

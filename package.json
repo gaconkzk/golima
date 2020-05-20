@@ -16,6 +16,7 @@
       "category": "public.app-category.entertainment"
     },
     "files": [
+      "electron.js",
       "build/**/*",
       "node_modules/**/*"
     ],
@@ -52,6 +53,7 @@
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
     "hls.js": "^0.13.2",
+    "plimaser": "^1.0.0",
     "plyr-react": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
