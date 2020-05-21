@@ -2721,7 +2721,7 @@ bluebird-lst@^1.0.9:
   dependencies:
     bluebird "^3.5.5"
 
-bluebird@^3.1.1, bluebird@^3.5.5, bluebird@^3.7.2:
+bluebird@^3.5.5, bluebird@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
@@ -3621,13 +3621,6 @@ console-browserify@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
   integrity sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA==
-
-consolidate@^0.14.5:
-  version "0.14.5"
-  resolved "https://registry.yarnpkg.com/consolidate/-/consolidate-0.14.5.tgz#5a25047bc76f73072667c8cb52c989888f494c63"
-  integrity sha1-WiUEe8dvcwcmZ8jLUsmJiI9JTGM=
-  dependencies:
-    bluebird "^3.1.1"
 
 constants-browserify@^1.0.0:
   version "1.0.0"
@@ -9407,6 +9400,31 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
+phimaser@gaconkzk/phimaser#f0202c9:
+  version "1.0.1"
+  resolved "https://codeload.github.com/gaconkzk/phimaser/tar.gz/f0202c9ec5baaff1c96c3164d761b0ae38777989"
+  dependencies:
+    bluebird "^3.7.2"
+    cheerio "^0.22.0"
+    compression "^1.6.2"
+    cookie-parser "^1.4.3"
+    csurf "^1.9.0"
+    dotenv "^4.0.0"
+    escape-html "^1.0.3"
+    fast-json-parse "^1.0.2"
+    finalhandler "^0.5.1"
+    got "^6.7.1"
+    helmet "^3.4.0"
+    kind-of "^5.0.0"
+    mustache "^2.3.0"
+    now-logs "0.0.7"
+    purecss "^0.6.2"
+    require-dir "^0.3.1"
+    router "^1.1.4"
+    serve-static "^1.11.1"
+    tunnel "0.0.4"
+    urllib "^2.34.2"
+
 picomatch@^2.0.4, picomatch@^2.0.7:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.1.tgz#21bac888b6ed8601f831ce7816e335bc779f0a4a"
@@ -9487,31 +9505,6 @@ pkg-up@3.1.0, pkg-up@^3.1.0:
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
-
-plimaser@./server:
-  version "1.0.0"
-  dependencies:
-    bluebird "^3.7.2"
-    cheerio "^0.22.0"
-    compression "^1.6.2"
-    consolidate "^0.14.5"
-    cookie-parser "^1.4.3"
-    csurf "^1.9.0"
-    dotenv "^4.0.0"
-    escape-html "^1.0.3"
-    fast-json-parse "^1.0.2"
-    finalhandler "^0.5.1"
-    got "^6.7.1"
-    helmet "^3.4.0"
-    kind-of "^5.0.0"
-    mustache "^2.3.0"
-    now-logs "0.0.7"
-    purecss "^0.6.2"
-    require-dir "^0.3.1"
-    router "^1.1.4"
-    serve-static "^1.11.1"
-    tunnel "0.0.4"
-    urllib "^2.34.2"
 
 plyr-react@^2.2.0:
   version "2.2.0"

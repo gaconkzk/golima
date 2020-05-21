@@ -52,7 +52,7 @@
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
     "hls.js": "^0.13.2",
-    "plimaser": "git@github.com:gaconkzk/phimaser.git#078371f",
+    "phimaser": "gaconkzk/phimaser#f0202c9",
     "plyr-react": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

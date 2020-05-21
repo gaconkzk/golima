@@ -4,7 +4,7 @@ const { app, crashReporter, BrowserWindow, Menu, session } = electron
 const path = require('path')
 const isDev = require('electron-is-dev')
 
-const server = require('plimaser/lib/server')
+const server = require('phimaser/lib/server')
 
 let mainWindow
 
@@ -41,6 +41,11 @@ function createWindow() {
       server.isStarted = true
     })
   }
+
+  // session.defaultSession.webRequest.onBeforeSendHeaders({urls:['*://*/*']}, (details, callback) => {
+  //   console.log(details.url)
+  //   callback({ requestHeaders: details.requestHeaders })
+  // })
   
   mainWindow = new BrowserWindow({
     width: 900,
