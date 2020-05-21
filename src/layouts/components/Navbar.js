@@ -8,6 +8,8 @@ import { Notification } from 'grommet-icons'
 import { SimButton } from 'components/SimButton'
 import { SidebarContext } from 'layouts/components/Sidebar'
 
+import Button from '@material-ui/core/Button'
+
 const Navbar = (props) => {
   let { appname, toggleSidebar } = props
 
@@ -31,7 +33,8 @@ const Navbar = (props) => {
             }
           }
         }}>
-      <Heading level={3} margin='none' as='a' href='#'>{appname}</Heading>
+        <Heading level={3} margin='none' as='a' href='#'>{appname}</Heading>
+        <Button variant="contained" color="primary">Good?</Button>
       </ThemeContext.Extend>
       { toggleSidebar && 
         <SimButton icon={<Notification/>} size='small' onClick={()=>{setSidebar(!sidebar)}}/>
